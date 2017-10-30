@@ -1,0 +1,21 @@
+<?php
+ 
+require("../includes/config.php");
+if($_SERVER["REQUEST_METHOD"]=="GET"){
+render("display_form_one.php",["title"=>"quote"]);
+}
+else if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_POST["symbol"]==''){
+   echo "<script>alert('you must provide a symbol')</script>";
+     header("refresh:0;");
+}
+else{
+$stock=lookup($_POST["symbol"]);
+$price=number_format($stock['price'],2,'.','');
+render("display_min_stock.php",["name"=>"$stock[name]","symbol"=>"$stock[symbol]","price"=>"$price","title"=>"Get Qoute"]);
+}
+}
+
+
+
+?>

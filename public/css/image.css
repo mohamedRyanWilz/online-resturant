@@ -1,0 +1,65 @@
+#all_image{
+position:relative;
+margin-bottom:40%;
+}
+#im1{
+position:absolute;
+float:left;
+left :200px;
+
+}
+#im2{
+position:absolute;
+right:200px;
+float:right;
+
+}
+#im3{
+position:absolute;
+right:200px;
+top:250px;
+float:right;
+
+}
+#im4{
+position:absolute;
+float:left;
+left :200px;
+top:250px;
+}
+#im5{
+position:absolute;
+right:200px;
+top:500px;
+float:right;
+
+}
+#im6{
+position:absolute;
+float:left;
+left :200px;
+top:500px;
+}
+#im7{
+position:absolute;
+float:left;
+left :200px;
+top:750px;
+}
+#im8{
+position:absolute;
+right:200px;
+top:750px;
+float:right;
+
+}
+#drt{
+display:none;
+
+}
+#do{
+background:rgba( 0  , 0 , 0 ,  0.6);
+color:white;
+font-size:20px;
+display:none;
+}

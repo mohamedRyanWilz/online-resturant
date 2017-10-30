@@ -1,0 +1,78 @@
+/**
+ * styles.css
+ *
+ * Computer Science 50
+ * Problem Set 7
+ *
+ * Global CSS.
+ */
+body{
+background: url("/img/background-photo.jpg") ;
+/*
+ url("/img/holiday2013_front.jpg") 
+-webkit-background-size:cover;
+-moz-background-size:cover;
+-o-background-size:cover;
+background-size:cover;
+background-position:center;
+position:relative;*/
+background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.container
+{
+    /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#top ul{
+ list-style: none; 
+ margin-top:15px;
+ margin-left:70px;
+  background:rgba( 0  , 0 , 0 ,  0.6);
+  
+}
+#top li a {
+  text-decoration: none;
+     color:white;
+     padding-right:30px;
+}
+
+#top  li a:hover {
+    color:crimson;
+}
+#top li {
+   display: inline-block; 
+    padding-left: 50px;
+    font-size: 25px;
+  
+}
+#middle .form-control
+{
+    /* center form controls */
+    display: inline-block;
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+#bottom
+{
+    /* shrink bottom's font size */
+    font-size: smaller;
+    color:white;
+    /* surround with whitespace */
+    margin: 20px;
+    margin-top:150px;
+}
+#f1,#f2,#f3 ,#f4{
+color:white;
+font-size:20px;
+}
+.app{
+color:white;
+}

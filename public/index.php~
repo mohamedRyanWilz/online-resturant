@@ -1,0 +1,25 @@
+<?php
+
+    // configuration
+    require("../includes/config.php");
+   
+
+$value=query("select symbol,shares from shares where id=?",$_SESSION['id']); 
+$cash=query("select cash from users where id = ?",$_SESSION['id']);
+$i=0;
+foreach($value as $symbol){
+$stock=lookup($symbol['symbol']);
+$price=number_format($stock['price'],2,'.','');
+$total= $price * $symbol['shares'];
+$result[$i]=array("symbol"=>$stock['symbol'],"name"=>$stock['name'],"shares"=>$symbol['shares'],"price"=>$price,"total"=>$total);
+$i++;
+}
+if(isset($result)){
+    // render portfolio
+   render("portfolio.php",  ["positions" => $result, "title" => "Portfolio","cash"=>$cash]);
+ require("../templates/taskbar.php");
+}
+else{
+render("portfolio.php",  [ "title" => "Portfolio","cash"=>$cash]);
+}
+?>

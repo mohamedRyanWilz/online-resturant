@@ -1,0 +1,49 @@
+<?php
+
+require("../includes/config.php");
+
+if($_SERVER["REQUEST_METHOD"] == "GET"){
+render("Buy_form.php",["title"=>"Buy"]);
+}
+else if($_SERVER["REQUEST_METHOD"] == "POST"){
+$val= preg_match("/^\d+$/", $_POST["shares"]);
+ if($val){
+$cash=query("select cash from users where id=?",$_SESSION['id']);
+$stock=lookup($_POST["symbol"]);
+$price=number_format($stock['price'],2,'.','');
+$symbol=strtoupper($stock['symbol']);
+$amount=$cash[0]['cash']-($price * $_POST["shares"]);
+$time=date("D:M:y:H:A:s");
+if($amount >= 0){
+try{
+query("START TRANSACTION");
+query("INSERT INTO shares (id, symbol, shares) VALUES(?, ?, ?) ON DUPLICATE KEY UPDATE shares = shares + VALUES(shares)
+",$_SESSION['id'],$symbol,$_POST["shares"]);
+query("UPDATE  `users` SET cash =? WHERE id =?",$amount,$_SESSION['id']);
+query("INSERT INTO trans (id,trans,symbol,shares,price,time) VALUES(?,?,?,?,?,?) ",$_SESSION['id'],0,$symbol,$_POST["shares"],$price,$time);
+query("COMMIT");
+redirect("/");
+}
+catch(EXCEPTION $e){
+query("ROLLBACK");
+        apologize("error ocure during transaction");
+}
+
+}//amount if 
+else{
+ apologize("sorry you don't have enough cash");
+}
+
+}// val if
+else{
+ apologize("sorry you shoud type valid shares");
+}
+
+
+
+}
+
+
+
+
+?>

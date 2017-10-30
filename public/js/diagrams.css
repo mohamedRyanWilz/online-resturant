@@ -1,0 +1,15 @@
+#boot{
+position:relative;
+
+}
+#chart{
+position:absolute;
+float:left;
+}
+#text{
+position:absolute;
+float:right;
+}
+.texte{
+text-align:justify;
+}

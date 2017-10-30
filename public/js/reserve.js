@@ -1,0 +1,24 @@
+function mo(){
+ $("#f1").hide();
+ $("#f2").hide();
+  $("#f3").hide();
+   $("#f4").hide();
+    $("#f5").hide();
+}
+$(document).ready(function(){
+    $("#f6").change(function(){
+   $("#f1").show();
+});
+    $("#f1").change(function(){
+   $("#f2").show();
+});
+    $("#f2").change(function(){
+        $("#f3").show();
+    });
+     $("#f3").change(function(){
+        $("#f4").show();
+    });
+     $("#f4").change(function(){
+        $("#f5").show();
+    });
+});

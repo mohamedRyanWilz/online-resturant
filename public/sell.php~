@@ -1,0 +1,33 @@
+<?php
+
+   require("../includes/config.php");
+ if ($_SERVER["REQUEST_METHOD"] == "GET")
+    {
+        // else render form
+        render("sell_form.php", ["id"=>$_SESSION['id'],"title" => "sell"]);
+    }
+ else if ($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+    $stock=lookup($_POST['selected']);
+     $price=$_POST['shares'] * $stock['price'];
+     $price=number_format($price,2,'.','');
+$id=$_SESSION['id'];
+$symbol=$_POST['selected'];
+$value=query("select cash from users where id=?",$id);
+$price+=$value[0]['cash'];
+$time=date("D:M:y:H:A:s");
+try{
+query("START TRANSACTION");
+query("DELETE FROM  `shares` WHERE id =? AND symbol =?",$id,$symbol);
+query("UPDATE  `users` SET cash =? WHERE id =?",$price,$id);
+query("INSERT INTO trans (id,trans,symbol,shares,price,time) VALUES(?,?,?,?,?,?) ",$id,1,$symbol,$_POST["shares"],$price,$time);
+query("COMMIT");
+redirect("/");
+}
+catch(EXCEPTION $e){
+query("ROLLBACK");
+        apologize("error ocure during transaction");
+}
+    }  
+
+?>
