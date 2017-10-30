@@ -1,0 +1,21 @@
+<table  class="table table-striped" >
+<tr>
+<th>Transaction </th>
+<th>DATE/TIME</th>
+<th>Symbol</th>
+<th>Shares</th>
+<th>Price</th>
+</tr>
+<?php if (isset($positions)): ?>
+<?php foreach($positions as $result):?>
+<tr>
+<td style="text-align:left"><?=($result['trans']==0)? 'Buy':'Sell';
+?></td>
+<td style="text-align:left"><?=$result['time']?></td>
+<td style="text-align:left"><?=$result['symbol']?></td>
+<td style="text-align:left"><?=$result['shares']?></td>
+<td style="text-align:left">$<?=$result['price']?></td>
+</tr>
+<?php endforeach  ?>
+<?php endif ?>
+</table>

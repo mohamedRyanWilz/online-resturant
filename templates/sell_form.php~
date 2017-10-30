@@ -1,0 +1,13 @@
+<form action="sell.php" method="post" >
+<select name="selected" class="form-control">
+<?php $result=query("select * from shares where id=?",$id);
+foreach($result as $symbol){
+?>
+<option value="<?=$symbol['symbol']?>" ><?=$symbol['symbol']?>
+<?php } ?>
+</select>
+<input type="hidden" value="<?=$symbol['shares'] ?>">
+<br>
+<br>
+<input type="submit" value="sell"  class="btn btn-default">
+</form>

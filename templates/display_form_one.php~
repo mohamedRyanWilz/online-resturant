@@ -1,0 +1,7 @@
+<form action="quote.php" method="post">
+<input  autofocus class="form-control" type="text" name="symbol" placeholder="symbol">
+<br>
+<br>
+<input type="submit" value="Get Quote" class="btn btn-default">
+
+</form>

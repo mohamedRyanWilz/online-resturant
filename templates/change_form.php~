@@ -1,0 +1,16 @@
+<form action="change.php" method="post" >
+<fieldset>
+<div class="form-group">
+<input type="password"  class="form-control" name="pass" required>
+<br>
+<br>
+<input type="password"  class="form-control" name="new_pass" required>
+<br>
+<br>
+<input type="password"  class="form-control" name="conf_pass" required>
+<br>
+<br>
+<input type="submit" value="Change" class="btn btn-default">
+</div>
+</fieldset>
+</form>

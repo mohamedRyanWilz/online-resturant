@@ -1,0 +1,13 @@
+<form action="Buy.php" method="post">
+ <fieldset>
+<div class="form-group">
+<input type="text"  class="form-control" placeholder="Symbol" name="symbol" required>
+<br>
+<br>
+<input type="number"  class="form-control" placeholder="shares" name="shares" required>
+<br>
+<br>
+<input type="submit" value="Buy" class="btn btn-default">
+</div>
+ </fieldset>
+</form>

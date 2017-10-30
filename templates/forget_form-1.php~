@@ -1,0 +1,11 @@
+<h1>please enter your mail to sent message to help you<h1>
+<hr>
+<form action="forget.php" method="post" >
+<fieldset>
+<div class="form-group">
+Email:<input type="Email" name="mail" placeholder="xxxx@xxxx.com"
+class="form-control">
+<input type="submit" value="Sent" class="btn btn-default">
+</div>
+</fieldset>
+</form>

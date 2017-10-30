@@ -1,0 +1,13 @@
+<div style='display:inline-block;'>
+<a href='http://pset7/quote.php' style='min-width:70px;'>Qoute.php</a>
+&nbsp &nbsp
+<a href='http://pset7/Buy.php'>Buy.php</a>
+&nbsp &nbsp
+<a href='http://pset7/sell.php'>Sell.php</a>
+&nbsp &nbsp
+<a href='History.php'>History.php</a>
+&nbsp &nbsp
+<a href='http://pset7/change.php'>change.php</a>
+&nbsp &nbsp
+<a href='http://pset7/logout.php'>logout</a>
+</div>
